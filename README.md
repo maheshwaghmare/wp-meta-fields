@@ -1,7 +1,7 @@
 # WP Meta Box Fields
 WordPress custom field framework for theme and plugns.
 
-### How to use?
+### How to add into theme/plugin?
 
 1. Create `inc` directory in your plugin/theme.
 2. Unzip latest release into `inc` directory.
@@ -11,12 +11,14 @@ WordPress custom field framework for theme and plugns.
 require_once 'inc/wp-meta-fields/wp-meta-fields.php';
 ```
 
-4. Use function `wp_add_meta_box()` to register meta box and its meta fields. It contain parameters which are used for WordPress function [add_meta_box()](https://developer.wordpress.org/reference/functions/add_meta_box/)
+### How to add meta box?
+
+Use function `mf_add_meta_box()` to register meta box and its meta fields. It contain parameters which are used for WordPress function [add_meta_box()](https://developer.wordpress.org/reference/functions/add_meta_box/)
 
 E.g.
 
 ```
-wp_add_meta_box( array(
+mf_add_meta_box( array(
 	'id'       => 'example-all-fields',
 	'title'    => __( 'Example - All Fields' ),
 	'screen'   => array( 'post' ),
@@ -27,6 +29,7 @@ wp_add_meta_box( array(
 	),
 );
 ```
+
 Where,
 
 - `id`	(string) (Required) Meta box ID (used in the 'id' attribute for the meta box).
@@ -38,10 +41,12 @@ Default value: 'advanced'
 - `priority`	(string) (Optional) The priority within the context where the boxes should show ('high', 'low').
 Default value: 'default'
 
-Lets add meta field.
+### How to add fields?
+
+Lets add meta field in above registered meta box.
 
 ```
-wp_add_meta_box( array(
+mf_add_meta_box( array(
 	'id'       => 'example-all-fields',
 	'title'    => __( 'Example - All Fields' ),
 	'screen'   => array( 'post' ),
@@ -67,7 +72,28 @@ Here,
 - `hint`	Field hint.
 - `default`	Field default value.
 
-### Fields
+### How to retrieve meta field value.
+
+Use function `mf_get_meta()` to retrieve the meta value.
+
+E.g. 
+
+```
+<?php echo mf_get_meta( 'prefix-1-text' ); ?>
+```
+
+By default it get the current post ID by using function `get_the_ID()`.
+
+OR
+
+Specific post meta value by passing post ID. E.g.
+
+```
+<?php echo mf_get_meta( 'prefix-1-text', 46 ); ?>
+```
+
+### Field Types
+
 Now, Framework support below build in HTML5 field support.
 
 - text
@@ -93,7 +119,7 @@ Now, Framework support below build in HTML5 field support.
 /**
  * Meta Fields (Screen - Normal)
  */
-wp_add_meta_box( array(
+mf_add_meta_box( array(
 	'id'       => 'example-all-fields',
 	'title'    => __( 'Example - All Fields' ),
 	'screen'   => array( 'post' ),
