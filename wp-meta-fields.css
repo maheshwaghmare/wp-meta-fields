@@ -1,0 +1,98 @@
+#postbox-container-2 .wp-meta-fields-title {
+    padding: 1em 12px;
+}
+#postbox-container-2 .wp-meta-fields-title h3 + p {
+	margin: 7px 0 0 0;
+}
+#postbox-container-2 .wp-meta-fields-title h3 {
+	margin: 0 0 0 0;
+    font-weight: normal;
+}
+#postbox-container-2 .wp-meta-fields-title p {
+    margin: 0;
+}
+#postbox-container-2 .wp-meta-fields-table textarea,
+#postbox-container-2 .wp-meta-fields-table input[type="url"],
+#postbox-container-2 .wp-meta-fields-table input[type="text"] {
+	width: 100%;
+    width: calc( 100% - 40px );
+}
+#postbox-container-2 .wp-meta-fields-table {
+    border-right: none;
+    /* border-bottom: none; */
+    border-left: none;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: none;
+}
+
+#postbox-container-2 .wp-meta-fields-row td {
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#postbox-container-2 .wp-meta-fields-heading {
+    background: #F9F9F9;
+    border-right: 1px solid #E1E1E1;
+    padding: 13px 15px;
+    width: 25%;
+    color: #333;
+    font-weight: bold;
+}
+#postbox-container-2 .wp-meta-fields-content {
+    padding: 13px 15px;
+    position: relative;
+}
+#postbox-container-2 .wp-meta-fields-content .description {
+    margin: 5px 0 0 0;
+}
+/**
+ * Side
+ */
+#side-sortables .wp-meta-fields-table textarea,
+#side-sortables .wp-meta-fields-table input[type="url"],
+#side-sortables .wp-meta-fields-table input[type="text"] {
+	width: 100%;
+    width: calc( 100% - 40px );
+}
+#side-sortables .wp-meta-fields-table tr {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #f0f0f0;
+}
+#side-sortables .wp-meta-fields-table {
+    border: none;
+}
+#side-sortables .wp-meta-fields-content,
+#side-sortables .wp-meta-fields-heading {
+    padding: 5px 10px;
+}
+
+/**
+ * Hint
+ */
+.wp-meta-fields-hint {
+    display: block;
+}
+
+.wp-meta-fields-hint i {
+	cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+/**
+ * Disable Duplicates.
+ */
+.wp-meta-fields-duplicate {
+    background: #f1f1f1;
+}
+.wp-meta-fields-duplicate input,
+.wp-meta-fields-duplicate select,
+.wp-meta-fields-duplicate textarea {
+    pointer-events: none;
+    background: rgba( 255, 255, 255, 0.5 );
+    border-color: rgba( 222, 222, 222, 0.75 );
+    box-shadow: inset 0 1px 2px rgba( 0, 0, 0, 0.04 );
+    color: rgba( 51, 51, 51, 0.5 );
+}
