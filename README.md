@@ -4,14 +4,87 @@ WordPress custom field framework for theme and plugns.
 ### How to use?
 
 1. Create `inc` directory in your plugin/theme.
-2. Unzip latest release into it.
+2. Unzip latest release into `inc` directory.
 3. Include it into your plugin/theme by adding below code.
 
 ```
 require_once 'inc/wp-meta-fields/wp-meta-fields.php';
 ```
 
-4. Use function `wp_add_meta_box()` to register meta box and meta fields.
+4. Use function `wp_add_meta_box()` to register meta box and its meta fields. It contain parameters which are used for WordPress function [add_meta_box()](https://developer.wordpress.org/reference/functions/add_meta_box/)
+
+E.g.
+
+```
+wp_add_meta_box( array(
+	'id'       => 'example-all-fields',
+	'title'    => __( 'Example - All Fields' ),
+	'screen'   => array( 'post' ),
+	'context'  => 'normal',
+	'priority' => 'default',
+	'fields' => array(
+	...
+	),
+);
+```
+Where,
+
+- `id`	(string) (Required) Meta box ID (used in the 'id' attribute for the meta box).
+- `title`	(string) (Required) Title of the meta box.
+- `screen`	(string|array|WP_Screen) (Optional) The screen or screens on which to show the box (such as a post type, 'link', or 'comment'). Accepts a single screen ID, WP_Screen object, or array of screen IDs. Default is the current screen. If you have used add_menu_page() or add_submenu_page() to create a new screen (and hence screen_id), make sure your menu slug conforms to the limits of sanitize_key() otherwise the 'screen' menu may not correctly render on your page.
+Default value: null
+- `context`	(string) (Optional) The context within the screen where the boxes should display. Available contexts vary from screen to screen. Post edit screen contexts include 'normal', 'side', and 'advanced'. Comments screen contexts include 'normal' and 'side'. Menus meta boxes (accordion sections) all use the 'side' context. Global
+Default value: 'advanced'
+- `priority`	(string) (Optional) The priority within the context where the boxes should show ('high', 'low').
+Default value: 'default'
+
+Lets add meta field.
+
+```
+wp_add_meta_box( array(
+	'id'       => 'example-all-fields',
+	'title'    => __( 'Example - All Fields' ),
+	'screen'   => array( 'post' ),
+	'context'  => 'normal',
+	'priority' => 'default',
+	'fields' => array(
+		'prefix-1-text' => array(
+			'type'        => 'text',
+			'title'       => 'Text Field',
+			'description' => 'Text Field field description goes here.',
+			'hint'        => 'Text Field field description goes here.',
+			'default'     => '',
+		),
+	),
+);
+```
+
+Here,
+- `prefix-1-text` 	Unique meta key.
+- `type`	Field type.
+- `title` 	Field title.
+- `description`	Field description.
+- `hint`	Field hint.
+- `default`	Field default value.
+
+### Fields
+Now, Framework support below build in HTML5 field support.
+
+- text
+- textarea
+- password
+- color
+- date
+- datetime-local
+- email
+- month
+- number
+- time
+- week
+- url
+- checkbox
+- radio
+- select
 
 ### Examples
 
@@ -147,4 +220,4 @@ wp_add_meta_box( array(
 ```
 It generate the meta box and meta fields like below screenshot.
 
-![All Meta Box](http://tinyurl.com/y8kmg3ws)
+![All Meta Box](https://i.imgur.com/s2JorqQ.png)
