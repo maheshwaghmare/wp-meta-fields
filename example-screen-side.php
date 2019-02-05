@@ -2,7 +2,7 @@
 /**
  * Meta Fields (Screen - Side)
  */
-wp_add_meta_box( array(
+mf_add_meta_box( array(
 	'id'       => 'example-all-fields-side',
 	'title'    => __( 'Example - All Fields Side' ),
 	'screen'   => array( 'post' ),
@@ -130,7 +130,7 @@ wp_add_meta_box( array(
 /**
  * Meta Fields (Grouped) (Screen - Side)
  */
-wp_add_meta_box( array(
+mf_add_meta_box( array(
 	'id'       => 'example-all-fields-side-grouped',
 	'title'    => __( 'Example - All Fields Side (Grouped)' ),
 	'screen'   => array( 'post' ),

@@ -323,6 +323,15 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 			$this->meta_boxes[] = $args;
 		}
 
+		function get_meta( $meta_key = '', $post_id = '' ) {
+
+			if( empty( $post_id ) ) {
+				$post_id = get_the_ID();
+			}
+
+			return get_post_meta( $post_id, $meta_key, true );
+		}
+
 		function generate_markup( $post_id, $meta_key = '', $field = array(), $meta_box ) {
 
 			$duplicate_class = in_array( $meta_key, $this->duplicate_keys ) ? 'wp-meta-fields-duplicate' : '';
@@ -627,6 +636,10 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 
 }// End if().
 
-function wp_add_meta_box( $args = array() ) {
+function mf_add_meta_box( $args = array() ) {
 	WP_Meta_Fields::get_instance()->add_meta_box( $args );
+}
+
+function mf_get_meta( $meta_key = '', $post_id = '' ) {
+	return WP_Meta_Fields::get_instance()->get_meta( $meta_key, $post_id );
 }

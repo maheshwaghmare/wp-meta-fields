@@ -2,7 +2,7 @@
 /**
  * Meta Fields (Screen - Advanced)
  */
-wp_add_meta_box( array(
+mf_add_meta_box( array(
 	'id'       => 'example-all-fields-advanced',
 	'title'    => __( 'Example - All Fields Advanced' ),
 	'screen'   => array( 'post' ),
@@ -130,7 +130,7 @@ wp_add_meta_box( array(
 /**
  * Meta Fields (Grouped) (Screen - Advanced)
  */
-wp_add_meta_box( array(
+mf_add_meta_box( array(
 	'id'       => 'example-all-fields-advanced-grouped',
 	'title'    => __( 'Example - All Fields (Grouped) Advanced' ),
 	'screen'   => array( 'post' ),
