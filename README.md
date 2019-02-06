@@ -81,44 +81,31 @@ Above registered field is looks like below screenshot in the post edit window.
 
 ![All Meta Box](https://i.imgur.com/Mb6aw2U.png)
 
-### How to retrieve meta field value.
+### How to print/retrieve meta field value.
 
-#### 1. Use shortcode `[mf meta_key="META_KEY" post_id="POST_ID"]` to retrieve the meta value.
+1. Use shortcode `[mf meta_key="META_KEY" post_id="POST_ID"]` to `print` the meta value.
 
-E.g.
-
-```
-[mf meta_key='prefix-1-text']
-```
-
+E.g. `[mf meta_key='prefix-1-text']`
 By default it get the current post ID by using function `get_the_ID()`.
 
-OR
+OR `[mf meta_key='prefix-1-text' post_id='46']`
+Specific post meta value by passing post ID.
 
-Specific post meta value by passing post ID. E.g.
+2. Use function `mf_meta()` to `print` the meta value.
 
-```
-[mf meta_key='prefix-1-text' post_id='46']
-```
-
-
-#### 2. Use function `mf_get_meta()` to retrieve the meta value.
-
-E.g. 
-
-```
-<?php echo mf_get_meta( 'prefix-1-text' ); ?>
-```
-
+E.g. `<?php mf_meta( 'prefix-1-text' ); ?>`
 By default it get the current post ID by using function `get_the_ID()`.
 
-OR
+OR `<?php mf_meta( 'prefix-1-text', 46 ); ?>`
+Specific post meta value by passing post ID.
 
+3. Use function `mf_get_meta()` to `retrieve` the meta value.
+
+E.g. `<?php echo mf_get_meta( 'prefix-1-text' ); ?>`
+By default it get the current post ID by using function `get_the_ID()`.
+
+OR `<?php echo mf_get_meta( 'prefix-1-text', 46 ); ?>`
 Specific post meta value by passing post ID. E.g.
-
-```
-<?php echo mf_get_meta( 'prefix-1-text', 46 ); ?>
-```
 
 ### Field Types
 
