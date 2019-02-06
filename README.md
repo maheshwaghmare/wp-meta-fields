@@ -24,10 +24,11 @@ mf_add_meta_box( array(
 	'screen'   => array( 'post' ),
 	'context'  => 'normal',
 	'priority' => 'default',
-	'fields' => array(
-	...
-	),
-);
+	'fields'   => array(
+		// ..
+	)
+));
+
 ```
 
 Where,
@@ -43,7 +44,7 @@ Default value: 'default'
 
 ### How to add fields?
 
-Lets add meta field in above registered meta box.
+Lets add one `text` field in our above registered meta box.
 
 ```
 mf_add_meta_box( array(
@@ -74,7 +75,26 @@ Here,
 
 ### How to retrieve meta field value.
 
-Use function `mf_get_meta()` to retrieve the meta value.
+1. Use shortcode `[mf meta_key="META_KEY" post_id="POST_ID"]` to retrieve the meta value.
+
+E.g.
+
+```
+[mf meta_key='prefix-1-text']
+```
+
+By default it get the current post ID by using function `get_the_ID()`.
+
+OR
+
+Specific post meta value by passing post ID. E.g.
+
+```
+[mf meta_key='prefix-1-text' post_id='46']
+```
+
+
+2. Use function `mf_get_meta()` to retrieve the meta value.
 
 E.g. 
 
