@@ -88,15 +88,17 @@ Above registered field is looks like below screenshot in the post edit window.
 
 To retrieve/print the value of our registered field `prefix-1-text` use:
 
-1. [mf meta_key='prefix-1-text']
+```
+[mf meta_key='prefix-1-text']
 
 or
 
-2. mf_meta( 'prefix-1-text' );
+mf_meta( 'prefix-1-text' );
 
 or
 
-3. echo mf_get_meta( 'prefix-1-text' );
+echo mf_get_meta( 'prefix-1-text' );
+```
 
 ---
 
