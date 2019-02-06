@@ -1,5 +1,6 @@
-# WP Meta Box Fields
-WordPress custom field framework for theme and plugns.
+# WP Meta Fields
+
+Easy custom field framework for WordPress theme and plugns.
 
 ### How to add into theme/plugin?
 
