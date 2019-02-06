@@ -3,19 +3,28 @@ WordPress custom field framework for theme and plugns.
 
 ### How to add into theme/plugin?
 
+1. Download latest zip of framework and unzip into your theme/plugin.
+2. Add below code to initialize framework.
+
+```
+require_once 'wp-meta-fields/wp-meta-fields.php';
+```
+
+You can organize your directory structure as per your requirement. Instead of adding framework in root directory of plugin/theme, I'll use the `inc` directory. To add the framework.
+
 1. Create `inc` directory in your plugin/theme.
-2. Unzip latest release into `inc` directory.
+2. Unzip latest release of `WP Meta Fields` into `inc` directory.
 3. Include it into your plugin/theme by adding below code.
 
 ```
 require_once 'inc/wp-meta-fields/wp-meta-fields.php';
 ```
 
-NOTE: Make sure you have the latest version `wp-meta-fields`. Get the latest version from https://github.com/maheshwaghmare/wp-meta-fields
+NOTE: Make sure you have the latest version `wp-meta-fields`. Get the latest version from [wp-meta-fields](https://github.com/maheshwaghmare/wp-meta-fields)
 
 ### Use sample plugin
 
-To know how to integrate meta field framework into plugin, Use the sample plugin for reference https://github.com/maheshwaghmare/wp-meta-fields-sample-plugin/
+To know how to integrate meta field framework into plugin, Use the [sample plugin](https://github.com/maheshwaghmare/wp-meta-fields-sample-plugin/)
 
 ### How to add meta box?
 
