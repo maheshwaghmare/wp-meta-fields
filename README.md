@@ -11,6 +11,8 @@ WordPress custom field framework for theme and plugns.
 require_once 'inc/wp-meta-fields/wp-meta-fields.php';
 ```
 
+NOTE: Make sure you have the latest version `wp-meta-fields`. Get the latest version from https://github.com/maheshwaghmare/wp-meta-fields
+
 ### Use sample plugin
 
 To know how to integrate meta field framework into plugin, Use the sample plugin for reference https://github.com/maheshwaghmare/wp-meta-fields-sample-plugin/
@@ -21,6 +23,7 @@ Use function `mf_add_meta_box()` to register meta box and its meta fields. It co
 
 E.g.
 
+Register meta box for post type `Post`.
 ```
 mf_add_meta_box( array(
 	'id'       => 'example-all-fields',
@@ -48,25 +51,25 @@ Default value: 'default'
 
 ### How to add fields?
 
-Lets add one `text` field in our above registered meta box.
+Register single `text` field which have a unique meta key `prefix-1-text` our above registered meta box.
 
 ```
 mf_add_meta_box( array(
-	'id'       => 'example-all-fields',
-	'title'    => __( 'Example - All Fields' ),
+	'id'       => 'example-meta-box',
+	'title'    => __( 'Example Meta Box' ),
 	'screen'   => array( 'post' ),
 	'context'  => 'normal',
 	'priority' => 'default',
-	'fields' => array(
+	'fields'   => array(
 		'prefix-1-text' => array(
 			'type'        => 'text',
-			'title'       => 'Text Field',
-			'description' => 'Text Field field description goes here.',
-			'hint'        => 'Text Field field description goes here.',
+			'title'       => __( 'Text Field', 'textdomain' ),
+			'description' => __( 'Simple text field for demonstration purpose.', 'textdomain' ),
+			'hint'        => __( 'This is the Text Field for storing the text data for demonstration purpose.', 'textdomain' ),
 			'default'     => '',
 		),
-	),
-);
+	)
+));
 ```
 
 Here,
@@ -82,6 +85,20 @@ Above registered field is looks like below screenshot in the post edit window.
 ![All Meta Box](https://i.imgur.com/Mb6aw2U.png)
 
 ### How to print/retrieve meta field value.
+
+To retrieve/print the value of our registered field `prefix-1-text` use:
+
+1. [mf meta_key='prefix-1-text']
+
+or
+
+2. mf_meta( 'prefix-1-text' );
+
+or
+
+3. echo mf_get_meta( 'prefix-1-text' );
+
+---
 
 1. Use shortcode `[mf meta_key="META_KEY" post_id="POST_ID"]` to `print` the meta value.
 
