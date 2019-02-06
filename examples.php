@@ -1,7 +1,4 @@
 <?php
-/**
- * Plugin Name: WP Meta Fields Example
- */
 
 // Load Core.
 require 'inc/wp-meta-fields/wp-meta-fields.php';
