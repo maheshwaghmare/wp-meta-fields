@@ -73,6 +73,10 @@ Here,
 - `hint`	Field hint.
 - `default`	Field default value.
 
+Above registered field is looks like below screenshot in the post edit window.
+
+![All Meta Box](https://i.imgur.com/Mb6aw2U.png)
+
 ### How to retrieve meta field value.
 
 1. Use shortcode `[mf meta_key="META_KEY" post_id="POST_ID"]` to retrieve the meta value.
