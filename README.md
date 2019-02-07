@@ -11,6 +11,10 @@ WordPress custom field framework for theme and plugns.
 require_once 'inc/wp-meta-fields/wp-meta-fields.php';
 ```
 
+### Use sample plugin
+
+To know how to integrate meta field framework into plugin, Use the sample plugin for reference https://github.com/maheshwaghmare/wp-meta-fields-sample-plugin/
+
 ### How to add meta box?
 
 Use function `mf_add_meta_box()` to register meta box and its meta fields. It contain parameters which are used for WordPress function [add_meta_box()](https://developer.wordpress.org/reference/functions/add_meta_box/)
@@ -79,7 +83,7 @@ Above registered field is looks like below screenshot in the post edit window.
 
 ### How to retrieve meta field value.
 
-1. Use shortcode `[mf meta_key="META_KEY" post_id="POST_ID"]` to retrieve the meta value.
+#### 1. Use shortcode `[mf meta_key="META_KEY" post_id="POST_ID"]` to retrieve the meta value.
 
 E.g.
 
@@ -98,7 +102,7 @@ Specific post meta value by passing post ID. E.g.
 ```
 
 
-2. Use function `mf_get_meta()` to retrieve the meta value.
+#### 2. Use function `mf_get_meta()` to retrieve the meta value.
 
 E.g. 
 
