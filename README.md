@@ -6,6 +6,10 @@ Easy custom field framework for WordPress theme and plugns.
 
 **Install Library**
 
+If you have not composer.json then initialize it with command `composer init`.
+
+if you already have the composer.json then use below command to install the package.
+
 ```
 composer require maheshwaghmare/wp-meta-fields
 ```
@@ -34,6 +38,13 @@ mf_add_meta_box( array(
 	)
 ));
 ```
+
+**Remove package**
+
+```
+composer remove maheshwaghmare/wp-meta-fields --update-with-dependencies
+```
+
 
 ### How to add into theme/plugin?
 
