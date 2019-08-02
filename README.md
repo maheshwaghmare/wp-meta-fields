@@ -2,6 +2,39 @@
 
 Easy custom field framework for WordPress theme and plugns.
 
+### Using with Composer
+
+**Install Library**
+
+```
+composer require maheshwaghmare/wp-meta-fields
+```
+
+**How to use?**
+
+```
+// Load files.
+require_once 'vendor/autoload.php';
+
+// Add meta box "Example Meta Box" for the post type 'post' and 'page'.
+mf_add_meta_box( array(
+	'id'       => 'example-meta-box',
+	'title'    => __( 'Example Meta Box' ),
+	'screen'   => array( 'post, page' ),
+	'context'  => 'normal',
+	'priority' => 'default',
+	'fields'   => array(
+		'prefix-1-text' => array(
+			'type'        => 'text',
+			'title'       => __( 'Text Field', 'textdomain' ),
+			'description' => __( 'Simple text field for demonstration purpose.', 'textdomain' ),
+			'hint'        => __( 'This is the Text Field for storing the text data for demonstration purpose.', 'textdomain' ),
+			'default'     => '',
+		),
+	)
+));
+```
+
 ### How to add into theme/plugin?
 
 1. Download latest zip of framework and unzip into your theme/plugin.
