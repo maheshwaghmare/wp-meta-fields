@@ -22,8 +22,8 @@
         "wp-coding-standards/wpcs": "^2.0"
     },
     "autoload": {
-        "classmap": [
-            "wp-meta-fields.php"
-        ]
+        "psr-0": {
+            "WP_Meta_Fields": "src/"
+        }
     }
 }
