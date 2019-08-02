@@ -2,31 +2,18 @@
     "name": "maheshwaghmare/wp-meta-fields",
     "type": "library",
     "description": "Register Meta Fields for WordPress with easy to use functions.",
-    "keywords": ["wordpress", "post-meta"],
+    "keywords": ["wordpress","post-meta"],
     "homepage": "https://github.com/maheshwaghmare/wp-meta-fields",
     "license": "MIT",
     "authors": [
-    {
-        "name": "Mahesh M. Waghmare",
-        "email": "mwaghmare7@gmail.com",
-        "homepage": "https://maheshwaghmare.wordpress.com/",
-        "role": "Developer"
-    }],
-    "require":
-    {
-        "php": ">=5.3.0|7.*",
-        "composer/installers": "~1.0",
-    },
-    "autoload":
-    {
-        "psr-4":
         {
-            "wp-meta-fields\\": "lib/"
+            "name": "Mahesh M. Waghmare",
+            "email": "mwaghmare7@gmail.com",
+            "homepage": "https://maheshwaghmare.wordpress.com/",
+            "role": "Developer"
         }
-    },
-    "repositories": [
-    {
-        "type": "composer",
-        "url": "https://wpackagist.org"
-    }]
+    ],
+    "require": {
+        "php": ">=5.3.0|7.*",
+    }
 }
