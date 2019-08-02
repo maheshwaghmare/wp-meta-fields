@@ -1,15 +1,31 @@
-# WP Meta Box Fields
-WordPress custom field framework for theme and plugns.
+# WP Meta Fields
+
+Easy custom field framework for WordPress theme and plugns.
 
 ### How to add into theme/plugin?
 
+1. Download latest zip of framework and unzip into your theme/plugin.
+2. Add below code to initialize framework.
+
+```
+require_once 'wp-meta-fields/wp-meta-fields.php';
+```
+
+You can organize your directory structure as per your requirement. Instead of adding framework in root directory of plugin/theme, I'll use the `inc` directory. To add the framework.
+
 1. Create `inc` directory in your plugin/theme.
-2. Unzip latest release into `inc` directory.
+2. Unzip latest release of `WP Meta Fields` into `inc` directory.
 3. Include it into your plugin/theme by adding below code.
 
 ```
 require_once 'inc/wp-meta-fields/wp-meta-fields.php';
 ```
+
+NOTE: Make sure you have the latest version `wp-meta-fields`. Get the latest version from [wp-meta-fields](https://github.com/maheshwaghmare/wp-meta-fields)
+
+### Use sample plugin
+
+To know how to integrate meta field framework into plugin, Use the [sample plugin](https://github.com/maheshwaghmare/wp-meta-fields-sample-plugin/)
 
 ### How to add meta box?
 
@@ -17,6 +33,7 @@ Use function `mf_add_meta_box()` to register meta box and its meta fields. It co
 
 E.g.
 
+Register meta box for post type `Post`.
 ```
 mf_add_meta_box( array(
 	'id'       => 'example-all-fields',
@@ -24,73 +41,102 @@ mf_add_meta_box( array(
 	'screen'   => array( 'post' ),
 	'context'  => 'normal',
 	'priority' => 'default',
-	'fields' => array(
-	...
-	),
-);
+	'fields'   => array(
+		// ..
+	)
+));
+
 ```
 
 Where,
 
-- `id`	(string) (Required) Meta box ID (used in the 'id' attribute for the meta box).
-- `title`	(string) (Required) Title of the meta box.
-- `screen`	(string|array|WP_Screen) (Optional) The screen or screens on which to show the box (such as a post type, 'link', or 'comment'). Accepts a single screen ID, WP_Screen object, or array of screen IDs. Default is the current screen. If you have used add_menu_page() or add_submenu_page() to create a new screen (and hence screen_id), make sure your menu slug conforms to the limits of sanitize_key() otherwise the 'screen' menu may not correctly render on your page.
-Default value: null
-- `context`	(string) (Optional) The context within the screen where the boxes should display. Available contexts vary from screen to screen. Post edit screen contexts include 'normal', 'side', and 'advanced'. Comments screen contexts include 'normal' and 'side'. Menus meta boxes (accordion sections) all use the 'side' context. Global
-Default value: 'advanced'
-- `priority`	(string) (Optional) The priority within the context where the boxes should show ('high', 'low').
-Default value: 'default'
+| Parameter | Description |
+|-----------------|-----------------|
+|`id` | (string) (Required) Meta box ID (used in the 'id' attribute for the meta box). |
+| `title` |	(string) (Required) Title of the meta box.|
+| `screen`|	(string|array|WP_Screen) (Optional) The screen or screens on which to show the box (such as a post type, 'link', or 'comment'). Accepts a single screen ID, WP_Screen object, or array of screen IDs. Default is the current screen. If you have used add_menu_page() or add_submenu_page() to create a new screen (and hence screen_id), make sure your menu slug conforms to the limits of sanitize_key() otherwise the 'screen' menu may not correctly render on your page. `Default value: null`|
+| `context`|	(string) (Optional) The context within the screen where the boxes should display. Available contexts vary from screen to screen. Post edit screen contexts include 'normal', 'side', and 'advanced'. Comments screen contexts include 'normal' and 'side'. Menus meta boxes (accordion sections) all use the 'side' context. Global. `Default value: 'advanced'`|
+| `priority`	|(string) (Optional) The priority within the context where the boxes should show ('high', 'low'). `Default value: 'default'`|
 
 ### How to add fields?
 
-Lets add meta field in above registered meta box.
+Register single `text` field which have a unique meta key `prefix-1-text` our above registered meta box.
 
 ```
 mf_add_meta_box( array(
-	'id'       => 'example-all-fields',
-	'title'    => __( 'Example - All Fields' ),
+	'id'       => 'example-meta-box',
+	'title'    => __( 'Example Meta Box' ),
 	'screen'   => array( 'post' ),
 	'context'  => 'normal',
 	'priority' => 'default',
-	'fields' => array(
+	'fields'   => array(
 		'prefix-1-text' => array(
 			'type'        => 'text',
-			'title'       => 'Text Field',
-			'description' => 'Text Field field description goes here.',
-			'hint'        => 'Text Field field description goes here.',
+			'title'       => __( 'Text Field', 'textdomain' ),
+			'description' => __( 'Simple text field for demonstration purpose.', 'textdomain' ),
+			'hint'        => __( 'This is the Text Field for storing the text data for demonstration purpose.', 'textdomain' ),
 			'default'     => '',
 		),
-	),
-);
+	)
+));
 ```
 
 Here,
-- `prefix-1-text` 	Unique meta key.
-- `type`	Field type.
-- `title` 	Field title.
-- `description`	Field description.
-- `hint`	Field hint.
-- `default`	Field default value.
 
-### How to retrieve meta field value.
+| Parameter | Description |
+|-----------------|-----------------|
+| `prefix-1-text` | Unique meta key. |
+| `type`          | Field type. |
+| `title`         | Field title. |
+| `description`   | Field description. |
+| `hint`          | Field hint. |
+| `default`       | Field default value. |
 
-Use function `mf_get_meta()` to retrieve the meta value.
+Above registered field is looks like below screenshot in the post edit window.
 
-E.g. 
+![All Meta Box](https://i.imgur.com/2k5f0ND.png)
+
+### How to print/retrieve meta field value.
+
+To retrieve/print the value of our registered field `prefix-1-text` use:
 
 ```
-<?php echo mf_get_meta( 'prefix-1-text' ); ?>
+[mf meta_key='prefix-1-text']
+
+or
+
+mf_meta( 'prefix-1-text' );
+
+or
+
+echo mf_get_meta( 'prefix-1-text' );
 ```
 
+---
+
+1. Use shortcode `[mf meta_key="META_KEY" post_id="POST_ID"]` to `print` the meta value.
+
+E.g. `[mf meta_key='prefix-1-text']`
 By default it get the current post ID by using function `get_the_ID()`.
 
-OR
+OR `[mf meta_key='prefix-1-text' post_id='46']`
+Specific post meta value by passing post ID.
 
+2. Use function `mf_meta()` to `print` the meta value.
+
+E.g. `<?php mf_meta( 'prefix-1-text' ); ?>`
+By default it get the current post ID by using function `get_the_ID()`.
+
+OR `<?php mf_meta( 'prefix-1-text', 46 ); ?>`
+Specific post meta value by passing post ID.
+
+3. Use function `mf_get_meta()` to `retrieve` the meta value.
+
+E.g. `<?php echo mf_get_meta( 'prefix-1-text' ); ?>`
+By default it get the current post ID by using function `get_the_ID()`.
+
+OR `<?php echo mf_get_meta( 'prefix-1-text', 46 ); ?>`
 Specific post meta value by passing post ID. E.g.
-
-```
-<?php echo mf_get_meta( 'prefix-1-text', 46 ); ?>
-```
 
 ### Field Types
 

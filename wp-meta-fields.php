@@ -54,6 +54,22 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'load-post.php',     array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
+
+			// Shortcode.
+			add_shortcode( 'mf', array( $this, 'shortcode_markup_meta' ) );
+		}
+
+		function shortcode_markup_meta( $atts = array(), $content = '' ) {
+			$atts = shortcode_atts( array(
+				'meta_key' => '',
+				'post_id'  => '',
+			), $atts );
+
+			if( empty( $atts['meta_key'] ) ) {
+				return '';
+			}
+		
+			return $this->meta( $atts['meta_key'], $atts['post_id'] );
 		}
 
 		/**
@@ -330,6 +346,10 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 			}
 
 			return get_post_meta( $post_id, $meta_key, true );
+		}
+
+		function meta( $meta_key = '', $post_id = '' ) {
+			echo $this->get_meta( $meta_key, $post_id);
 		}
 
 		function generate_markup( $post_id, $meta_key = '', $field = array(), $meta_box ) {
@@ -642,4 +662,8 @@ function mf_add_meta_box( $args = array() ) {
 
 function mf_get_meta( $meta_key = '', $post_id = '' ) {
 	return WP_Meta_Fields::get_instance()->get_meta( $meta_key, $post_id );
+}
+
+function mf_meta( $meta_key = '', $post_id = '' ) {
+	return WP_Meta_Fields::get_instance()->meta( $meta_key, $post_id );
 }
