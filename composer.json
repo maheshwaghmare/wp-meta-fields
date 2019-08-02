@@ -23,6 +23,8 @@
         "wp-coding-standards/wpcs": "^2.0"
     },
     "autoload": {
-        "classmap": ["vendor/maheshwaghmare/wp-meta-fields/src/", "vendor/maheshwaghmare/wp-meta-fields/src/wp-meta-fields.php"]
+        "files": [
+            "src/wp-meta-fields.php"
+        ]
     }
 }
