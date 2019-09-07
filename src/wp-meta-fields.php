@@ -656,14 +656,20 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 
 }// End if().
 
-function mf_add_meta_box( $args = array() ) {
-	WP_Meta_Fields::get_instance()->add_meta_box( $args );
-}
+if( function_exists( 'mf_add_meta_box' ) ) :
+	function mf_add_meta_box( $args = array() ) {
+		WP_Meta_Fields::get_instance()->add_meta_box( $args );
+	}
+endif;
 
-function mf_get_meta( $meta_key = '', $post_id = '' ) {
-	return WP_Meta_Fields::get_instance()->get_meta( $meta_key, $post_id );
-}
+if( function_exists( 'mf_get_meta' ) ) :
+	function mf_get_meta( $meta_key = '', $post_id = '' ) {
+		return WP_Meta_Fields::get_instance()->get_meta( $meta_key, $post_id );
+	}
+endif;
 
-function mf_meta( $meta_key = '', $post_id = '' ) {
-	return WP_Meta_Fields::get_instance()->meta( $meta_key, $post_id );
-}
+if( function_exists( 'mf_meta' ) ) :
+	function mf_meta( $meta_key = '', $post_id = '' ) {
+		return WP_Meta_Fields::get_instance()->meta( $meta_key, $post_id );
+	}
+endif;
