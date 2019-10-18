@@ -374,17 +374,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'text':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="text" <?php echo $readonly; ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" />
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="text" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" />
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -392,17 +392,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'textarea':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<textarea name="<?php echo $meta_key; ?>" <?php echo $readonly; ?>><?php echo $value; ?></textarea>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<textarea name="<?php echo esc_attr( $meta_key ); ?>" <?php echo esc_attr( $readonly ); ?>><?php echo esc_textarea( $value ); ?></textarea>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -410,19 +410,19 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'radio':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
 									<?php foreach ( $field['choices']  as $choice_value => $choice_title ) { ?>
-										<label><input type="radio" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" <?php checked( $value, $choice_value ); ?> value="<?php echo $choice_value; ?>" /><?php echo $choice_title; ?><br/></label>
+										<label><input type="radio" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" <?php checked( $value, $choice_value ); ?> value="<?php echo esc_attr( $choice_value ); ?>" /><?php echo esc_html( $choice_title ); ?><br/></label>
 									<?php } ?>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -430,17 +430,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'password':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="password" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="password" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -448,17 +448,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'color':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="color" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="color" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -466,17 +466,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'date':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="date" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="date" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -484,17 +484,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'email':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="email" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="email" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo sanitize_email( $value ); ?>" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -502,17 +502,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'month':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="month" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="month" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -520,17 +520,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'number':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="number" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="number" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -538,17 +538,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'time':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="time" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="time" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -556,17 +556,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'url':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="url" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="url" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_url( $value ); ?>" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -574,17 +574,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'week':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="week" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="week" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -592,17 +592,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'datetime-local':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="datetime-local" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="datetime-local" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -610,17 +610,17 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'checkbox':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<input type="checkbox" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" <?php checked( $value, 'yes' ); ?> value="yes" /><br/>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<input type="checkbox" <?php echo esc_attr( $readonly ); ?> name="<?php echo esc_attr( $meta_key ); ?>" <?php checked( $value, 'yes' ); ?> value="yes" /><br/>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
@@ -628,21 +628,21 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				case 'select':
 					?>
 							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
-								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
+								<td class="wp-meta-fields-heading"><?php echo esc_html( $field['title'] ); ?></td>
 								<td class="wp-meta-fields-content">
-									<?php echo $duplicate_message; ?>
+									<?php echo esc_html( $duplicate_message ); ?>
 									<?php if ( ! empty( $field['description'] ) ) { ?>
 										<div class="wp-meta-fields-hint">
 											<i class="dashicons dashicons-editor-help" onClick="jQuery(this).siblings('.wp-meta-fields-hint-message').slideToggle(000);"></i>
-											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
+											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo esc_html( $field['hint'] ); ?></p>
 										</div>
 									<?php } ?>
-									<select name="<?php echo esc_attr( $meta_key ); ?>" <?php echo $readonly; ?>>
+									<select name="<?php echo esc_attr( $meta_key ); ?>" <?php echo esc_attr( $readonly ); ?>>
 									<?php foreach ( $field['choices']  as $choice_value => $choice_title ) { ?>
-										<option value="<?php echo $choice_value; ?>" <?php selected( $value, $choice_value ); ?>><?php echo $choice_title; ?></option>
+										<option value="<?php echo esc_attr( $choice_value ); ?>" <?php selected( $value, $choice_value ); ?>><?php echo esc_html( $choice_title ); ?></option>
 									<?php } ?>
 									</select>
-									<p class="description"><?php echo $field['description']; ?></p>
+									<p class="description"><?php echo esc_html( $field['description'] ); ?></p>
 								</td>
 							</tr>
 							<?php
