@@ -147,7 +147,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 			// Checks save status.
 			$is_autosave    = wp_is_post_autosave( $post_id );
 			$is_revision    = wp_is_post_revision( $post_id );
-			$is_valid_nonce = ( isset( $_POST['wp_meta_fields_nonce'] ) && wp_verify_nonce( $_POST['wp_meta_fields_nonce'], basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce = ( isset( $_POST['wp_meta_fields_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wp_meta_fields_nonce'] ) ), basename( __FILE__ ) ) ) ? true : false;
 
 			// Exits script depending on save status.
 			if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {
@@ -287,8 +287,8 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 				foreach ( $groups as $key => $group ) {
 					?>
 					<div class="wp-meta-fields-title">
-						<h3><?php echo $group['title']; ?></h3>
-						<p class="description"><?php echo $group['description']; ?></p>
+						<h3><?php echo esc_html( $group['title'] ); ?></h3>
+						<p class="description"><?php echo esc_html( $group['description'] ); ?></p>
 					</div>
 					
 					<?php if ( ! empty( $group['fields'] ) ) { ?>
@@ -350,7 +350,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 		}
 
 		function meta( $meta_key = '', $post_id = '' ) {
-			echo $this->get_meta( $meta_key, $post_id );
+			echo esc_html( $this->get_meta( $meta_key, $post_id ) );
 		}
 
 		function generate_markup( $post_id, $meta_key = '', $field = array(), $meta_box ) {
@@ -360,7 +360,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 			$duplicate_message = '';
 			if ( in_array( $meta_key, $this->duplicate_keys ) ) {
 				?>
-				<div class="notice notice-warning"><?php printf( __( '<p>Meta key <code>%1$s</code> is duplicate from meta box <b>%2$s</b>. Please use unique meta key.</p>', 'wp-meta-fields' ), esc_html( $meta_key ), esc_html( $meta_box['title'] ) ); ?></div>
+				<div class="notice notice-warning"><?php printf( esc_html( __( '<p>Meta key <code>%1$s</code> is duplicate from meta box <b>%2$s</b>. Please use unique meta key.</p>', 'wp-meta-fields' )  ), esc_html( $meta_key ), esc_html( $meta_box['title'] ) ); ?></div>
 				<?php
 			}
 
