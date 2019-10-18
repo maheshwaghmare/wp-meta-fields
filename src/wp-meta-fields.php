@@ -360,7 +360,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 			$duplicate_message = '';
 			if ( in_array( $meta_key, $this->duplicate_keys ) ) {
 				?>
-				<div class="notice notice-warning"><?php printf( __( '<p>Meta key <code>%1$s</code> is duplicate from meta box <b>%2$s</b>. Please use unique meta key.</p>', 'wp-meta-fields' ), $meta_key, $meta_box['title'] ); ?></div>
+				<div class="notice notice-warning"><?php printf( __( '<p>Meta key <code>%1$s</code> is duplicate from meta box <b>%2$s</b>. Please use unique meta key.</p>', 'wp-meta-fields' ), esc_html( $meta_key ), esc_html( $meta_box['title'] ) ); ?></div>
 				<?php
 			}
 
@@ -373,7 +373,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 			switch ( $field['type'] ) {
 				case 'text':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -383,7 +383,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
 										</div>
 									<?php } ?>
-									<input type="text" <?php echo $readonly; ?> name="<?php echo $meta_key; ?>" value="<?php echo $value; ?>" />
+									<input type="text" <?php echo $readonly; ?> name="<?php echo esc_attr( $meta_key ); ?>" value="<?php echo esc_attr( $value ); ?>" />
 									<p class="description"><?php echo $field['description']; ?></p>
 								</td>
 							</tr>
@@ -391,7 +391,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'textarea':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -409,7 +409,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'radio':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -429,7 +429,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'password':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -447,7 +447,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'color':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -465,7 +465,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'date':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -483,7 +483,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'email':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -501,7 +501,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'month':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -519,7 +519,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'number':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -537,7 +537,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'time':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -555,7 +555,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'url':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -573,7 +573,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'week':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -591,7 +591,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'datetime-local':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -609,7 +609,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'checkbox':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -627,7 +627,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 					break;
 				case 'select':
 					?>
-							<tr class="wp-meta-fields-row <?php echo $duplicate_class; ?>">
+							<tr class="wp-meta-fields-row <?php echo esc_attr( $duplicate_class ); ?>">
 								<td class="wp-meta-fields-heading"><?php echo $field['title']; ?></td>
 								<td class="wp-meta-fields-content">
 									<?php echo $duplicate_message; ?>
@@ -637,7 +637,7 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 											<p class="wp-meta-fields-hint-message" style="display: none;"><?php echo $field['hint']; ?></p>
 										</div>
 									<?php } ?>
-									<select name="<?php echo $meta_key; ?>" <?php echo $readonly; ?>>
+									<select name="<?php echo esc_attr( $meta_key ); ?>" <?php echo $readonly; ?>>
 									<?php foreach ( $field['choices']  as $choice_value => $choice_title ) { ?>
 										<option value="<?php echo $choice_value; ?>" <?php selected( $value, $choice_value ); ?>><?php echo $choice_title; ?></option>
 									<?php } ?>
