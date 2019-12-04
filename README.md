@@ -24,7 +24,7 @@ require_once 'vendor/autoload.php';
 mf_add_meta_box( array(
 	'id'       => 'example-meta-box',
 	'title'    => __( 'Example Meta Box' ),
-	'screen'   => array( 'post, page' ),
+	'screen'   => array( 'post', 'page' ),
 	'context'  => 'normal',
 	'priority' => 'default',
 	'fields'   => array(
