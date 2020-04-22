@@ -1,3 +1,6 @@
+# Exclude examples.
+examples/
+
 # Exclude random files.
 Thumbs.db
 wp-cli.local.yml
@@ -16,13 +19,6 @@ node_modules/
 
 # Skip package file from versoning
 *.zip
-
-# ignore git inside subproject
-admin/bsf-core/.git
-
-# ignore PHPCS report files
-phpcs-summary.log
-phpcs-full.log
 
 # Exclude OS specific files
 .DS_Store

@@ -59,6 +59,14 @@ if ( ! class_exists( 'WP_Meta_Fields' ) ) {
 			add_shortcode( 'mf', array( $this, 'shortcode_markup_meta' ) );
 		}
 
+		/**
+		 * Shortcode Markup
+		 *
+		 * @since  1.0.5
+		 * @param  array  $atts    Shortcode attributes.
+		 * @param  string $content Content.
+		 * @return mixed
+		 */
 		function shortcode_markup_meta( $atts = array(), $content = '' ) {
 			$atts = shortcode_atts(
 				array(
