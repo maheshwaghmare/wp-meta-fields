@@ -1,6 +1,6 @@
 # WP Meta Fields
 
-Easy custom field framework for WordPress theme and plugns.
+Register meta fields for WordPress theme and plugns. Build for WordPress developers.
 
 ### Using with Composer
 
@@ -38,6 +38,14 @@ mf_add_meta_box( array(
 	)
 ));
 ```
+
+Here, We have added a one Text Field for `page` and `post` types.
+
+Our text field meta key is `prefix-1-text`.
+
+We can get the meta filed value with shortcode like `[mf meta_key="prefix-1-text"]`
+
+We can register many other input fields like `text`, `textarea`, `password`, `color` etc. See **Field Types**.
 
 **Remove package**
 
