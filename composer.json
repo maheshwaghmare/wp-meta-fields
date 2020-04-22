@@ -1,7 +1,7 @@
 {
     "name": "maheshwaghmare/wp-meta-fields",
     "type": "library",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "Register Custom Fields for any WordPress theme or plugin. Build for developer.",
     "keywords": ["wordpress", "post-meta"],
     "homepage": "https://github.com/maheshwaghmare/wp-meta-fields",
@@ -24,9 +24,7 @@
         "wp-coding-standards/wpcs": "^2.0"
     },
     "autoload": {
-        "exclude-from-classmap": {
-            "exclude-from-classmap": ["/examples/"]
-        },
+        "exclude-from-classmap": ["/examples/"],
         "files": [
             "src/wp-meta-fields.php"
         ]
