@@ -10,13 +10,13 @@ If you have not composer.json then initialize it with command `composer init`.
 
 if you already have the composer.json then use below command to install the package.
 
-```
+```php
 composer require maheshwaghmare/wp-meta-fields
 ```
 
 **How to use?**
 
-```
+```php
 // Load files.
 require_once 'vendor/autoload.php';
 
@@ -49,7 +49,7 @@ We can register many other input fields like `text`, `textarea`, `password`, `co
 
 **Remove package**
 
-```
+```php
 composer remove maheshwaghmare/wp-meta-fields --update-with-dependencies
 ```
 
@@ -59,7 +59,7 @@ composer remove maheshwaghmare/wp-meta-fields --update-with-dependencies
 1. Download latest zip of framework and unzip into your theme/plugin.
 2. Add below code to initialize framework.
 
-```
+```php
 require_once 'wp-meta-fields/wp-meta-fields.php';
 ```
 
@@ -86,7 +86,7 @@ Use function `mf_add_meta_box()` to register meta box and its meta fields. It co
 E.g.
 
 Register meta box for post type `Post`.
-```
+```php
 mf_add_meta_box( array(
 	'id'       => 'example-all-fields',
 	'title'    => __( 'Example - All Fields' ),
@@ -114,7 +114,7 @@ Where,
 
 Register single `text` field which have a unique meta key `prefix-1-text` our above registered meta box.
 
-```
+```php
 mf_add_meta_box( array(
 	'id'       => 'example-meta-box',
 	'title'    => __( 'Example Meta Box' ),
@@ -152,7 +152,7 @@ Above registered field is looks like below screenshot in the post edit window.
 
 To retrieve/print the value of our registered field `prefix-1-text` use:
 
-```
+```php
 [mf meta_key='prefix-1-text']
 
 or
@@ -213,7 +213,8 @@ Now, Framework support below build in HTML5 field support.
 ### Examples
 
 #### All Meta Field:
-```
+
+```php
 /**
  * Meta Fields (Screen - Normal)
  */
