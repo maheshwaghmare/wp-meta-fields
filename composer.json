@@ -1,9 +1,9 @@
 {
     "name": "maheshwaghmare/wp-meta-fields",
     "type": "library",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Register Custom Fields for any WordPress theme or plugin. Build for developer.",
-    "keywords": ["wordpress","post-meta"],
+    "keywords": ["wordpress", "post-meta"],
     "homepage": "https://github.com/maheshwaghmare/wp-meta-fields",
     "license": "MIT",
     "authors": [
@@ -24,7 +24,9 @@
         "wp-coding-standards/wpcs": "^2.0"
     },
     "archive": {
-        "exclude": [ "/examples" ]
+        "exclude": [
+            "/examples"
+        ]
     },
     "autoload": {
         "files": [
